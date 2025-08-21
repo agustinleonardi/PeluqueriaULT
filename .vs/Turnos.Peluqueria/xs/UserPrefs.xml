@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{41A42016-C833-4240-973A-221E0143C7F4}|http">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Turnos.Domain/Enums/Role.cs">
+    <Files>
+      <File FileName="Turnos.API/Program.cs" Line="22" Column="1" />
+      <File FileName="Turnos.Domain/Enums/Role.cs" Line="7" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Turnos.Peluqueria" expanded="True">
+            <Node name="Turnos.API" expanded="True" />
+            <Node name="Turnos.Application" expanded="True" />
+            <Node name="Turnos.Domain" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Turnos.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

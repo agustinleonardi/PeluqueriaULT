@@ -1,0 +1,11 @@
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/bin/Debug/net8.0/Turnos.Domain.deps.json
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/bin/Debug/net8.0/Turnos.Domain.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/bin/Debug/net8.0/Turnos.Domain.pdb
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.AssemblyInfoInputs.cache
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.AssemblyInfo.cs
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.csproj.CoreCompileInputs.cache
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/refint/Turnos.Domain.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/Turnos.Domain.pdb
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Domain/obj/Debug/net8.0/ref/Turnos.Domain.dll
