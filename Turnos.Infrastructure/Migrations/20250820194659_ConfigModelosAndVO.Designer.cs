@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Turnos.Infrastructure.Data;
 
+
 #nullable disable
 
 namespace Turnos.Infrastructure.Migrations

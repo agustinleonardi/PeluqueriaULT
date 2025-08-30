@@ -22,14 +22,14 @@ namespace Turnos.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Turnos.Domain.Entities.Appointment", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.AppointmentEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -52,24 +52,25 @@ namespace Turnos.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Appointments");
+                    b.ToTable("Appointments", (string)null);
                 });
 
-            modelBuilder.Entity("Turnos.Domain.Entities.Service", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.ServiceEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -79,24 +80,30 @@ namespace Turnos.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
-            modelBuilder.Entity("Turnos.Domain.Entities.User", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.UserEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTimeOffset>("CreatedAtUtc")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -107,58 +114,34 @@ namespace Turnos.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Turnos.Domain.Entities.Appointment", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.AppointmentEntity", b =>
                 {
-                    b.HasOne("Turnos.Domain.Entities.Service", "Service")
+                    b.HasOne("Turnos.Infrastructure.Entities.ServiceEntity", "Service")
                         .WithMany("Appointments")
                         .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Turnos.Domain.Entities.User", "Client")
+                    b.HasOne("Turnos.Infrastructure.Entities.UserEntity", "User")
                         .WithMany("Appointments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Client");
-
                     b.Navigation("Service");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Turnos.Domain.Entities.User", b =>
-                {
-                    b.OwnsOne("Turnos.Domain.ValueObjects.Email", "Email", b1 =>
-                        {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Email");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("Users");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("Email")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Turnos.Domain.Entities.Service", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.ServiceEntity", b =>
                 {
                     b.Navigation("Appointments");
                 });
 
-            modelBuilder.Entity("Turnos.Domain.Entities.User", b =>
+            modelBuilder.Entity("Turnos.Infrastructure.Entities.UserEntity", b =>
                 {
                     b.Navigation("Appointments");
                 });

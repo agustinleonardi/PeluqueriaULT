@@ -1,27 +1,34 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Turnos.Application.Abstractions.Repositories;
 using Turnos.Domain.Entities;
 using Turnos.Infrastructure.Data;
+using Turnos.Infrastructure.Entities;
+
 
 namespace Turnos.Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _dbContext;
-    public UserRepository(AppDbContext appDbContext)
+    private readonly IMapper _mapper;
+    public UserRepository(AppDbContext appDbContext, IMapper mapper)
     {
         _dbContext = appDbContext;
+        _mapper = mapper;
     }
 
     public async Task AddAsync(User user)
     {
-        _dbContext.Add(user);
+        var entity = _mapper.Map<UserEntity>(user);
+        _dbContext.Users.Add(entity);
         await _dbContext.SaveChangesAsync();
     }
 
     public async Task DeleteAsync(User user)
     {
-        _dbContext.Users.Remove(user);
+        var entity = _mapper.Map<UserEntity>(user);
+        _dbContext.Users.Remove(entity);
         await _dbContext.SaveChangesAsync();
     }
 
@@ -32,23 +39,40 @@ public class UserRepository : IUserRepository
 
     public async Task<IEnumerable<User>> GetAllUsers()
     {
-        return await _dbContext.Users.ToListAsync();
+        var entities = await _dbContext.Users.ToListAsync();
+        return _mapper.Map<IEnumerable<User>>(entities);
+
     }
 
     public async Task<User?> GetByEmailAsync(string email)
     {
-        return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email.Value == email);
+        var entity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (entity == null)
+        {
+            return null;
+        }
+        return _mapper.Map<User>(entity);
     }
 
     public async Task<User?> GetByIdAsync(Guid id)
     {
-        return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var entity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        if (entity == null)
+        {
+            return null;
+        }
+        return _mapper.Map<User>(entity);
     }
 
     public async Task UpdateAsync(User user)
     {
         _dbContext.Add(user);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<int> GetUserCount()
+    {
+        return await _dbContext.Users.CountAsync();
     }
 
 

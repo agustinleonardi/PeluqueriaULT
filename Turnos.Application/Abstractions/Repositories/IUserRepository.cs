@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 using Turnos.Domain.Entities;
 
 namespace Turnos.Application.Abstractions.Repositories;
@@ -13,4 +12,5 @@ public interface IUserRepository
     Task UpdateAsync(User user);
     Task<bool> ExistsAsync(Guid id);
 
+    Task<int> GetUserCount();
 }

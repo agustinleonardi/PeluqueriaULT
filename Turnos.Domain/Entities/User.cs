@@ -1,4 +1,4 @@
-using PeluqueriaUlt.Domain.Enums;
+using Turnos.Domain.Enums;
 using Turnos.Domain.ValueObjects;
 
 namespace Turnos.Domain.Entities;
@@ -11,21 +11,23 @@ public class User
     public string PasswordHash { get; private set; } = default!;
     public Role Role { get; private set; }
     public bool IsActive { get; private set; }
-    public DateTime CreatedAt { get; private set; }
+    public DateTimeOffset CreatedAtUtc { get; private set; }
 
-    public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
-
+    private readonly List<Appointment> _appointments = new List<Appointment>();
+    public IReadOnlyCollection<Appointment> Appointments => _appointments.AsReadOnly();
     private User() { }
 
-    public User(string name, Email email, string passwordHash)
+    public void Desactivate() => IsActive = false;
+    public void Activate() => IsActive = true;
+    public User(Guid id, string name, Email email, string passwordHash, Role role, bool active, DateTimeOffset dateTimeOffset)
     {
-        Id = Guid.NewGuid();
+        Id = id;
         Name = name;
         Email = email;
         PasswordHash = passwordHash;
-        Role = Role.Client;
+        Role = role;
         IsActive = true;
-        CreatedAt = DateTime.UtcNow;
-        Appointments = new List<Appointment>();
+        CreatedAtUtc = DateTimeOffset.UtcNow;
+        _appointments = new List<Appointment>();
     }
 }

@@ -4,7 +4,7 @@ namespace Turnos.Domain.ValueObjects;
 
 public class Email
 {
-    public string Value { get; }
+    public string Value { get; private set; }
 
     private Email(string value)
     {

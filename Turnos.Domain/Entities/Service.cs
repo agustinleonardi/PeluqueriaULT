@@ -1,5 +1,4 @@
-using System.Runtime;
-using PeluqueriaUlt.Domain.Enums;
+using Turnos.Domain.Enums;
 
 namespace Turnos.Domain.Entities;
 

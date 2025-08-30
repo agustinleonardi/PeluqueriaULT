@@ -7,4 +7,6 @@ public interface IUserService
 {
     Task<User?> GetByIdAsync(Guid id);
     Task CreateUserAsync(CreateUserDto createUserDto);
+    Task<IEnumerable<User>> GetAllUsers();
+    Task<int> GetUserCount();
 }

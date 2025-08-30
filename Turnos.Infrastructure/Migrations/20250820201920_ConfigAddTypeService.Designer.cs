@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Turnos.Infrastructure.Data;
+using Turnos.Infrastructure.Data.Persistence;
 
 #nullable disable
 

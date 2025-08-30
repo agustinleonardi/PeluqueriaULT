@@ -36,9 +36,11 @@ public class UserController : ControllerBase
         var count = await _userService.GetUserCount();
         return Ok(count);
     }
+
     [HttpPost]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserDto createUserDto)
     {
+
         await _userService.CreateUserAsync(createUserDto);
         return Ok("Usuario creado con exito");
     }

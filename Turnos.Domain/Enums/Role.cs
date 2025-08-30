@@ -1,4 +1,4 @@
-namespace PeluqueriaUlt.Domain.Enums;
+namespace Turnos.Domain.Enums;
 
 public enum Role
 {

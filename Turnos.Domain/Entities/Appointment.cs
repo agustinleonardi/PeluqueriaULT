@@ -1,3 +1,5 @@
+using Turnos.Domain.Enums;
+
 namespace Turnos.Domain.Entities;
 
 public class Appointment
@@ -10,6 +12,8 @@ public class Appointment
     public DateTime Date { get; private set; }
     public int Duration { get; private set; }
     public decimal Price { get; private set; }
+    public AppointmentStatus Status { get; private set; } = AppointmentStatus.Avtice;
+
     public DateTime CreatedAt { get; private set; }
 
     private Appointment() { }
@@ -23,5 +27,10 @@ public class Appointment
         Duration = service.Duration;
         Price = price;
         CreatedAt = DateTime.UtcNow;
+    }
+
+    public void Cancel()
+    {
+        Status = AppointmentStatus.Cancelled;
     }
 }
