@@ -172,3 +172,6 @@
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/Turnos.Tests.pdb
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/Turnos.Tests.genruntimeconfig.cache
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/ref/Turnos.Tests.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
