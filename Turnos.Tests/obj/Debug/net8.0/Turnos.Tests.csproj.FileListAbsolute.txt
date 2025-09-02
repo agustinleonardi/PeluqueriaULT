@@ -16,6 +16,9 @@
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Azure.Core.dll
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Azure.Identity.dll
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Castle.Core.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -172,6 +175,4 @@
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/Turnos.Tests.pdb
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/Turnos.Tests.genruntimeconfig.cache
 /Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/obj/Debug/net8.0/ref/Turnos.Tests.dll
-/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.dll
-/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
-/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/agustinleonardi/Desktop/Proyectos_Agu/PeluqueriaULT/Turnos.Tests/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll

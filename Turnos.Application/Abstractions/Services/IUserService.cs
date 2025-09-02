@@ -6,7 +6,9 @@ namespace Turnos.Application.Abstractions.Services;
 public interface IUserService
 {
     Task<User?> GetByIdAsync(Guid id);
-    Task CreateUserAsync(CreateUserDto createUserDto);
+    Task CreateUserAsync(RegisterUserRequest createUserDto);
     Task<IEnumerable<User>> GetAllUsers();
     Task<int> GetUserCount();
+    Task DeleteAsync(Guid id);
+    Task<User?> AuthenticateAsync(string email, string password);
 }

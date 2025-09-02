@@ -1,6 +1,6 @@
-using System.Text;
+
 using Turnos.Application.Abstractions.Services;
-using System.Security.Cryptography;
+using BCrypt.Net;
 
 namespace Turnos.Infrastructure.Services;
 
@@ -8,9 +8,11 @@ public class PasswordHasher : IPasswordHasher
 {
     public string Hash(string password)
     {
-        var sha = SHA512.Create();
-        var bytes = Encoding.UTF8.GetBytes(password);
-        var hash = sha.ComputeHash(bytes);
-        return Convert.ToBase64String(hash);
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
+
+    public bool Verify(string passwordHash, string password)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, passwordHash);
     }
 }

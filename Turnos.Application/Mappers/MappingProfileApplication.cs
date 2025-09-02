@@ -10,5 +10,6 @@ public class MappingProfileApplication : Profile
     public MappingProfileApplication()
     {
         CreateMap<Appointment, AppointmentDto>();
+        CreateMap<Service, ServiceDto>();
     }
 }

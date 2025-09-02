@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Turnos.Domain.Enums;
 using Turnos.Domain.ValueObjects;
 
@@ -19,7 +20,15 @@ public class User
 
     public void Desactivate() => IsActive = false;
     public void Activate() => IsActive = true;
-    public User(Guid id, string name, Email email, string passwordHash, Role role, bool active, DateTimeOffset dateTimeOffset)
+    public void SetPassword(string newPassword)
+    {
+        PasswordHash = newPassword;
+    }
+    public void ChangeEmail(Email email)
+    {
+        Email = email;
+    }
+    public User(Guid id, string name, Email email, string passwordHash, Role role, bool active, DateTimeOffset dateTimeOffset, IEnumerable<Appointment> appointments)
     {
         Id = id;
         Name = name;
@@ -28,6 +37,6 @@ public class User
         Role = role;
         IsActive = true;
         CreatedAtUtc = DateTimeOffset.UtcNow;
-        _appointments = new List<Appointment>();
+        _appointments = new List<Appointment>(appointments);
     }
 }

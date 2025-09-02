@@ -27,9 +27,12 @@ public class UserRepository : IUserRepository
 
     public async Task DeleteAsync(User user)
     {
-        var entity = _mapper.Map<UserEntity>(user);
-        _dbContext.Users.Remove(entity);
-        await _dbContext.SaveChangesAsync();
+        var existingEntity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+        if (existingEntity != null)
+        {
+            _dbContext.Users.Remove(existingEntity);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
     public async Task<bool> ExistsAsync(Guid id)

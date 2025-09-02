@@ -23,12 +23,14 @@ public class UserService : IUserService
         return await _userRepository.GetByIdAsync(id);
     }
 
-    public async Task CreateUserAsync(CreateUserDto createUserDto)
+    public async Task CreateUserAsync(RegisterUserRequest dto)
     {
-        var email = Email.Create(createUserDto.Email);
-        var passwordHash = _passwordHasher.Hash(createUserDto.Password);
-        var user = new User(Guid.NewGuid(), createUserDto.Name, email, passwordHash, Role.Client, true, DateTimeOffset.Now);
-        await _userRepository.AddAsync(user);
+        var email = Email.Create(dto.Email);
+        var user = await _userRepository.GetByEmailAsync(email.Value);
+        if (user != null) throw new Exception("El usuario con ese email ya existe");
+        var passwordHash = _passwordHasher.Hash(dto.Password);
+        var newUser = new User(Guid.NewGuid(), dto.Name, email, passwordHash, Role.Client, true, DateTimeOffset.Now, new List<Appointment>());
+        await _userRepository.AddAsync(newUser);
     }
 
     public async Task<IEnumerable<User>> GetAllUsers()
@@ -41,4 +43,21 @@ public class UserService : IUserService
         return await _userRepository.GetUserCount();
     }
 
+    public async Task DeleteAsync(Guid id)
+    {
+        var user = await _userRepository.GetByIdAsync(id);
+        if (user == null) throw new Exception($"El usuario con la id {id} no existe");
+        await _userRepository.DeleteAsync(user);
+    }
+
+    public async Task<User?> AuthenticateAsync(string email, string password)
+    {
+        var emailValidate = Email.Create(email);
+        var existingUser = await _userRepository.GetByEmailAsync(emailValidate.Value);
+        if (existingUser == null) throw new Exception("El usuario con ese email no existe");
+
+        if (!_passwordHasher.Verify(existingUser.PasswordHash, password)) return null;
+
+        return existingUser;
+    }
 }
